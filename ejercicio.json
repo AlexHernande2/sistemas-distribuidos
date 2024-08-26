@@ -1,0 +1,62 @@
+[
+  {
+    "nombre": "Yesid Hernandez",
+    "cedula": "987456321",
+    "fecha": "2024-08-25",
+    "estatura": 1.95
+  },
+  {
+    "nombre": "Tatiana Perez",
+    "cedula": "963258741",
+    "fecha": "2024-08-25",
+    "estatura": 1.65
+  },
+  {
+    "nombre": "Brayan Pineda",
+    "cedula": "147852369",
+    "fecha": "2024-08-25",
+    "estatura": 1.7
+  },
+  {
+    "nombre": "María Gonzalez",
+    "cedula": "789321456",
+    "fecha": "2024-08-25",
+    "estatura": 1.62
+  },
+  {
+    "nombre": "Estiben Jimenez",
+    "cedula": "456321789",
+    "fecha": "2024-08-25",
+    "estatura": 1.7
+  },
+  {
+    "nombre": "Natalia Casallas",
+    "cedula": "456821793",
+    "fecha": "2024-08-25",
+    "estatura": 1.68
+  },
+  {
+    "nombre": "Alejandra Suarez",
+    "cedula": "258963147",
+    "fecha": "22024-08-25",
+    "estatura": 1.7
+  },
+  {
+    "nombre": "Cesar Gonzalez",
+    "cedula": "745218963",
+    "fecha": "2024-08-25",
+    "estatura": 1.8
+  },
+  {
+    "nombre": "Ricardo Castellanos",
+    "cedula": "321897654",
+    "fecha": "2024-08-25",
+    "estatura": 1.55
+  },
+  {
+    "nombre": "Paula Ramirez",
+    "cedula": "9975412",
+    "fecha": "2024-08-25",
+    "estatura": 1.66
+  }
+]
