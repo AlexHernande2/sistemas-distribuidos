@@ -1,29 +1,42 @@
-// fetch("ejercicio.json")
-//   .then((response) => response.json()) //se convierte a un array de objetos
-//   .then((data) => {
-//     //`data` es el array de objetos.
-//     document.getElementById("ejercicioJson").textContent = JSON.stringify(
-//       data,
-//       null,
-//       2
-//     );
-//   })
-//   // .then((data) => {
-//   //   console.log(Array.isArray(data));
-//   // })
+// Función para descargar y guardar el archivo JSON desde GitHub
+const descargarYGuardarJson = () => {
+  const url =
+    "https://raw.githubusercontent.com/AlexHernande2/sistemas-distribuidos/main/ejercicio.json";
 
-//   .catch((error) => console.error("Error al cargar el JSON:", error));
+  fetch(url)
+    .then((response) => response.json())
+    .then((data) => {
+      const dataStr = JSON.stringify(data, null, 2);
+      const blob = new Blob([dataStr], { type: "application/json" });
 
-fetch("https://raw.githubusercontent.com/AlexHernande2/sistemas-distribuidos/main/ejercicio.json")
-  .then((response) => response.json()) // Convierte la respuesta a un array de objetos
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = "ejercicio.json";
+
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    })
+    .catch((error) =>
+      console.error("Error al descargar el archivo JSON:", error)
+    );
+};
+
+// Llamar a la función para descargar y guardar el JSON
+descargarYGuardarJson();
+
+// Procesar y mostrar los datos pares en la lista
+fetch(
+  "https://raw.githubusercontent.com/AlexHernande2/sistemas-distribuidos/main/ejercicio.json"
+)
+  .then((response) => response.json())
   .then((data) => {
     const listaDatos = document.getElementById("listaDatos");
 
-    //  posiciones pares
-    //el folter sirve para crear un nevo array de data
+    // Filtrar las posiciones pares
     const datosPares = data.filter((_, index) => index % 2 === 0);
 
-    // Crear un elemento de lista por cada objeto y añadirlo al DOM
+    // Crear y añadir cada elemento a la lista en el DOM
     datosPares.forEach((item) => {
       const listItem = document.createElement("li");
       listItem.textContent = `Nombre: ${item.nombre}, Cédula: ${item.cedula}, Fecha: ${item.fecha}, Estatura: ${item.estatura}`;
@@ -32,17 +45,19 @@ fetch("https://raw.githubusercontent.com/AlexHernande2/sistemas-distribuidos/mai
   })
   .catch((error) => console.error("Error al cargar el JSON:", error));
 
-// lista normal sin filtrar
-fetch("https://raw.githubusercontent.com/AlexHernande2/sistemas-distribuidos/main/ejercicio.json")
-  .then((response) => response.json()) // Convierte la respuesta a un array de objetos
+// Procesar y mostrar todos los datos en la lista sin filtrar
+fetch(
+  "https://raw.githubusercontent.com/AlexHernande2/sistemas-distribuidos/main/ejercicio.json"
+)
+  .then((response) => response.json())
   .then((data) => {
-    // Referencia a la lista en el DOM
     const ejercicioJsonLista = document.getElementById("ejercicioJson");
 
-    // Crear un elemento <li> por cada objeto en el JSON y añadirlo a la lista
+    // Crear y añadir cada elemento a la lista en el DOM
     data.forEach((item) => {
       const listItem = document.createElement("li");
       listItem.textContent = `Nombre: ${item.nombre}, Cédula: ${item.cedula}, Fecha: ${item.fecha}, Estatura: ${item.estatura}`;
       ejercicioJsonLista.appendChild(listItem);
     });
-  });
+  })
+  .catch((error) => console.error("Error al cargar el JSON:", error));
