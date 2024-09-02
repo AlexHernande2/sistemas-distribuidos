@@ -14,7 +14,7 @@
 
 //   .catch((error) => console.error("Error al cargar el JSON:", error));
 
-fetch("ejercicio.json")
+fetch("https://raw.githubusercontent.com/AlexHernande2/sistemas-distribuidos/main/ejercicio.json")
   .then((response) => response.json()) // Convierte la respuesta a un array de objetos
   .then((data) => {
     const listaDatos = document.getElementById("listaDatos");
@@ -33,7 +33,7 @@ fetch("ejercicio.json")
   .catch((error) => console.error("Error al cargar el JSON:", error));
 
 // lista normal sin filtrar
-fetch("./ejercicio.json")
+fetch("https://raw.githubusercontent.com/AlexHernande2/sistemas-distribuidos/main/ejercicio.json")
   .then((response) => response.json()) // Convierte la respuesta a un array de objetos
   .then((data) => {
     // Referencia a la lista en el DOM
